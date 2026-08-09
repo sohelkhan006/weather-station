@@ -1,0 +1,94 @@
+.weather-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 28px 28px;
+  border-radius: 28px;
+  color: #edf1f7;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.weather-card-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(237, 241, 247, 0.65);
+}
+
+.weather-card-eyebrow .dot {
+  color: var(--accent);
+}
+
+.weather-hero {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.weather-hero-icon {
+  color: var(--accent) !important;
+  filter: drop-shadow(0 0 12px var(--glow));
+}
+
+.weather-hero-temp {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 88px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.weather-feels-like {
+  margin: 6px 0 26px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: rgba(237, 241, 247, 0.65);
+}
+
+.weather-stats {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.stat-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(237, 241, 247, 0.5);
+}
+
+.stat-value {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+@media (max-width: 420px) {
+  .weather-hero-temp {
+    font-size: 72px;
+  }
+}

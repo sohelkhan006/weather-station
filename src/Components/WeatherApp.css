@@ -1,0 +1,123 @@
+.weather-shell {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 64px 20px 48px;
+  background:
+    radial-gradient(circle at 20% 0%, var(--grad-via), transparent 60%),
+    linear-gradient(160deg, var(--grad-from), var(--grad-to) 70%);
+  background-size: 200% 200%;
+  animation: driftSky 22s ease-in-out infinite;
+  transition: background 1s ease;
+}
+
+@keyframes driftSky {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 60%;
+  }
+}
+
+.weather-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+/* --- Signature element: a sky that reacts to the actual weather --- */
+
+.weather-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.atmosphere-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.atmosphere-glow {
+  top: -20%;
+  left: 50%;
+  width: 480px;
+  height: 480px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, var(--glow), transparent 70%);
+  filter: blur(10px);
+  opacity: 0.7;
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateX(-50%) scale(1.08);
+  }
+}
+
+.atmosphere-rain {
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.18) 0 2px,
+    transparent 2px 22px
+  );
+  background-size: 220px 220px;
+  animation: rainFall 0.6s linear infinite;
+}
+[data-weather="rain"] .atmosphere-rain {
+  opacity: 0.45;
+}
+@keyframes rainFall {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -60px 220px;
+  }
+}
+
+.atmosphere-snow {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.7) 2px, transparent 2px);
+  background-size: 40px 40px;
+  animation: snowDrift 10s linear infinite;
+}
+[data-weather="snow"] .atmosphere-snow {
+  opacity: 0.4;
+}
+@keyframes snowDrift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 400px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weather-shell,
+  .atmosphere-glow,
+  .atmosphere-rain,
+  .atmosphere-snow {
+    animation: none;
+  }
+}
