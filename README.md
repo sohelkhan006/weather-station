@@ -2,7 +2,7 @@
 
 A React weather app that fetches live conditions from the OpenWeatherMap API and displays them in a glass-panel UI with a background that reacts to the actual weather — animated rain streaks, drifting snow, and a soft glow, depending on conditions.
 
-[👉 View Live Demo](https://your-demo-link.com)
+[👉 View Live Demo](https://glasssky.vercel.app/)
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-Build-646CFF?logo=vite&logoColor=white)
